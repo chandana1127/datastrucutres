@@ -1,46 +1,36 @@
 #include <stdio.h>
 
-int main(){
+int main()
+{
+  int array[100], n, c, d, swap;
 
-    int arr[50], num, x, y, temp;    
+  printf("Enter number of elements\n");
+  scanf("%d", &n);
 
-    printf("Please Enter the Number of Elements you want in the array: ");
+  printf("Enter %d integers\n", n);
 
-    scanf("%d", &num);    
+  for (c = 0; c < n; c++)
+    scanf("%d", &array[c]);
 
-    printf("Please Enter the Value of Elements: ");
-
-    for(x = 0; x < num; x++)
-
-        scanf("%d", &arr[x]);
-
-    for(x = 0; x < num - 1; x++){       
-
-        for(y = 0; y < num - x - 1; y++){          
-
-            if(arr[y] > arr[y + 1]){               
-
-                temp = arr[y];
-
-                arr[y] = arr[y + 1];
-
-                arr[y + 1] = temp;
-
-            }
-
-        }
-
+  for (c = 0 ; c < n - 1; c++)
+  {
+    for (d = 0 ; d < n - c - 1; d++)
+    {
+      if (array[d] > array[d+1]) /* For decreasing order use '<' instead of '>' */
+      {
+        swap       = array[d];
+        array[d]   = array[d+1];
+        array[d+1] = swap;
+      }
     }
+  }
 
-    printf("Array after implementing bubble sort: ");
+  printf("Sorted list in ascending order:\n");
 
-    for(x = 0; x < num; x++){
+  for (c = 0; c < n; c++)
+     printf("%d\n", array[c]);
 
-        printf("%d  ", arr[x]);
-
-    }
-
-    return 0;
-
+  return 0;
 }
+
 
